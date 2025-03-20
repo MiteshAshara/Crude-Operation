@@ -1,0 +1,44 @@
+﻿@model _20date_MVC.Models.User
+
+<h2 class="text-center text-secondary">Create User</h2>
+
+<div class="container-fluid mt-4">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter name" />
+            <span asp-validation-for="Name" class="text-secondary fw-bold"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email" />
+            <span asp-validation-for="Email" class="text-secondary fw-bold"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Address">Address</label>
+            <input asp-for="Address" class="form-control" placeholder="Enter address" />
+            <span asp-validation-for="Address" class="text-secondary fw-bold"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Gender">Gender</label>
+            <select asp-for="Gender" class="form-control">
+                <option value="" disabled selected>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+            <span asp-validation-for="Gender" class="text-secondary fw-bold"></span>
+        </div>
+
+         <div class="form-group mb-3">
+            <label>Image</label>
+            <input type="file" name="image" class="form-control" />
+            <span class="text-secondary fw-bold">@Html.ValidationMessage("Image")</span>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Create</button>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-link">
+        <img src="~/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <div class="sidebar">
+   
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
+            <div class="image">
+                <img src="~/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <span class="d-block text-white">@User.Identity.Name</span>
+            </div>
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" 
+                       class="nav-link @(currentController == "Home" && currentAction == "Index" ? "bg-white text-dark" : "")">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="User" asp-action="Index" 
+                       class="nav-link @(currentController == "User" && currentAction == "Index" ? "bg-white text-dark" : "")">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy" 
+                       class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "bg-white text-dark" : "")">
+                        <i class="nav-icon fas fa-shield-alt"></i>
+                        <p>Privacy</p>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>

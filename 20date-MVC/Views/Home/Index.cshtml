@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid text-center mt-3">
+    <h1 class="display-4 text-secondary">Welcome, <br>@User.Identity.Name</h1>
+    <p class="lead">Manage your users efficiently</p>
+
+    <a class="btn btn-dark mt-2 px-4 py-2" asp-controller="User" asp-action="Index">Go to User Management</a>
+</div>

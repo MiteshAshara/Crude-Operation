@@ -1,0 +1,56 @@
+﻿@model _20date_MVC.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container-fluid">
+    <section class="vh-100 d-flex align-items-center justify-content-center bg-white">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+
+                <div class="col-md-6 d-none d-md-block">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                         class="img-fluid" alt="Login Image">
+                </div>
+
+                <div class="col-md-6 col-lg-5">
+                    <div class="bg-white">
+                        <h3 class="text-center mb-4 text-secondary">Login</h3>
+
+                        <form asp-action="Index" method="post">
+                           
+                            <div class="form-group mb-3">
+                                <label asp-for="Email" class="form-label">Email Address</label>
+                                <input asp-for="Email" type="email" 
+                                       class="form-control @(ViewData["EmailError"] != null ? "is-invalid" : "")"
+                                       placeholder="Enter Email" required />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label asp-for="Password" class="form-label">Password</label>
+                                <input asp-for="Password" type="password" 
+                                       class="form-control @(ViewData["PasswordError"] != null ? "is-invalid" : "")"
+                                       placeholder="Enter Password" required />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-dark">Login</button>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+                            {
+                                <div class="alert alert-danger mt-3">
+                                    @ViewData["ErrorMessage"]
+                                </div>
+                            }
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
